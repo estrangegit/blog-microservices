@@ -4,14 +4,18 @@ import axios from 'axios';
 
 export default class PostList extends React.Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {posts: {}};
         this.fetchPosts = this.fetchPosts.bind(this);
     }
 
     componentDidMount() {
         this.fetchPosts();
+
+        this.props.postCreatedEvenEmitter.on('new-post-created', () => {
+            this.fetchPosts();
+        })
     }
 
     fetchPosts = async () => {
