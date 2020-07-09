@@ -1,6 +1,7 @@
 import React from 'react';
 import PostItem from './PostItem';
 import axios from 'axios';
+import EventEmitter from 'es-event-emitter';
 
 export default class PostList extends React.Component{
 
@@ -8,6 +9,7 @@ export default class PostList extends React.Component{
         super(props);
         this.state = {posts: {}};
         this.fetchPosts = this.fetchPosts.bind(this);
+        this.commentCreatedEvenEmitter = new EventEmitter();
     }
 
     componentDidMount() {
@@ -16,16 +18,20 @@ export default class PostList extends React.Component{
         this.props.postCreatedEvenEmitter.on('new-post-created', () => {
             this.fetchPosts();
         })
+
+        this.commentCreatedEvenEmitter.on('new-comment-created', () => {
+            this.fetchPosts();
+        })
     }
 
     fetchPosts = async () => {
-        const res = await axios.get('http://localhost:4000/posts');
+        const res = await axios.get('http://localhost:4002/posts');
         this.setState({posts: res.data})
     }
 
     render() {
         const renderedPosts = Object.values(this.state.posts).map((post) =>
-            <PostItem key={post.id} post={post}/>
+            <PostItem key={post.id} post={post} commentCreatedEvenEmitter = {this.commentCreatedEvenEmitter}/>
         );
 
         return <div className="d-flex flex-row flex-wrap justify-content-start">

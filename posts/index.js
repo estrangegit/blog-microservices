@@ -35,7 +35,7 @@ app.post('/posts', async (req, res) => {
 });
 
 app.post('/events', (req, res) => {
-    console.log('received event', req.body.type);
+    console.log('post microservice received event', req.body.type);
     res.send(`event received with type ${req.body.type}`)
 })
 
