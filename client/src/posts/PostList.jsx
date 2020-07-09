@@ -28,7 +28,7 @@ export default class PostList extends React.Component{
             <PostItem key={post.id} post={post}/>
         );
 
-        return <div className="d-flex flex-row flex-wrap justify-content-between">
+        return <div className="d-flex flex-row flex-wrap justify-content-start">
             { renderedPosts }
             </div>;
     }

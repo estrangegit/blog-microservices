@@ -1,7 +1,7 @@
 import React from 'react';
 import PostCreate from './posts/PostCreate';
 import PostList from './posts/PostList';
-import EventEmitter from 'EventEmitter';
+import EventEmitter from 'es-event-emitter';
 
 export default class App extends React.Component{
 
