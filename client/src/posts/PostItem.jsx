@@ -10,8 +10,7 @@ export default class PostList extends React.Component{
                     <div className="card-body">
                         <h3>{this.props.post.title}</h3>
                         <CommentList comments={this.props.post.comments}/>
-                        <CommentCreate postId={this.props.post.id}
-                            commentCreatedEvenEmitter={this.props.commentCreatedEvenEmitter}/>
+                        <CommentCreate postId={this.props.post.id}/>
                     </div>
         </div>;
     }

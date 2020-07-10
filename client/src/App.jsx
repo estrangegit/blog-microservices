@@ -1,22 +1,15 @@
 import React from 'react';
 import PostCreate from './posts/PostCreate';
 import PostList from './posts/PostList';
-import EventEmitter from 'es-event-emitter';
 
 export default class App extends React.Component{
-
-    constructor() {
-        super();
-        this.postCreatedEvenEmitter = new EventEmitter();
-    }
-
     render() {
         return <div className="container">
             <h1>Create post</h1>
-            <PostCreate postCreatedEvenEmitter = {this.postCreatedEvenEmitter}/>
+            <PostCreate />
             <hr/>
             <h1>Posts</h1>
-            <PostList postCreatedEvenEmitter = {this.postCreatedEvenEmitter}/>
+            <PostList />
         </div>;
     }
 }

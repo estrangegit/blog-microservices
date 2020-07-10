@@ -18,7 +18,6 @@ export default class CommentCreate extends React.Component{
         })
 
         this.setState({content: ''});
-        this.props.commentCreatedEvenEmitter.emit('new-comment-created');
     }
 
     handleChange = (event) => {

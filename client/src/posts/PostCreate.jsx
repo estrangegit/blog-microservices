@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export default class PostCreate extends React.Component{
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {title: ''};
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -18,7 +18,6 @@ export default class PostCreate extends React.Component{
         })
 
         this.setState({title: ''});
-        this.props.postCreatedEvenEmitter.emit('new-post-created');
     }
 
     handleChange = (event) => {
