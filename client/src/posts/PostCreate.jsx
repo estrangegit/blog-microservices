@@ -12,7 +12,7 @@ export default class PostCreate extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.post('http://localhost:4000/posts', {
+    await axios.post('http://posts.com/posts/create', {
       title: this.state.title,
     });
 

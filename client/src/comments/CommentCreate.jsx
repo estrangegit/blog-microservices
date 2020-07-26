@@ -12,12 +12,9 @@ export default class CommentCreate extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.post(
-      `http://localhost:4001/posts/${this.props.postId}/comments`,
-      {
-        content: this.state.content,
-      }
-    );
+    await axios.post(`http://posts.com/posts/${this.props.postId}/comments`, {
+      content: this.state.content,
+    });
 
     this.setState({ content: '' });
   };
